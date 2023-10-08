@@ -1,0 +1,79 @@
+body {
+    background-color: rgb(200, 164, 230);
+}
+
+p {
+    background-color: rgb(255, 203, 235);
+}
+.paragraphStyle {
+    padding: 40px;
+    text-align: center;
+    color: rgb(201, 54, 238);
+}
+#myHeadshot {
+    size: 10px;
+    display: block;
+    opacity: 0.7;;
+    border-radius: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+#myMeList {
+    list-style-position: inside;
+    margin-left: 550px;
+}
+#myContactmeLink {
+    list-style-position: inside;
+    margin-left: 590px;
+}
+#myTable {
+   
+    border-color: rgb(109, 60, 83);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: monospace;
+}
+#textUserBox {
+    float: inline-end;
+    text-align: right;
+    padding: 30px;
+}
+#radioBox {
+    float: inline-start;
+    text-align: center;
+    padding: 30px;
+}
+img {
+    height: 500px;
+    width: 400px;
+}
+ 
+h1 {
+    border-color: rgb(63, 0, 55);
+    border-width: thick;
+    border-style: dotted;
+    border-radius: 10px;
+}
+ul {
+    color: rgb(65, 17, 143);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+a:link {
+    color: red;
+}
+
+a:visited {
+    color: green;
+}
+
+a:hover {
+    color: hotpink;
+}
+
+a:active {
+    color: blue;
+}
