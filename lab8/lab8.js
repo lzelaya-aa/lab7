@@ -3,43 +3,36 @@
 function getDataFromForm() {
   alert("it worked!");
   // Obtain the first name and last name from the form elements
-  const firstName = document.getElementById("fname").value;
-  const lastName = document.getElementById("lname").value;
-
-  // Call runAjax and send the two strings as arguments
-  runAjax(firstName, lastName);
+    var firstName = document.querySelector('input[name="fname"]').value;
+    var lastName = document.querySelector('input[name="lname"]').value;
+    runAjax(firstName, lastName);
 }
 
+// Function to make an AJAX request
 function runAjax(fname, lname) {
-  // Create a new XMLHttpRequest object
-  const xhr = new XMLHttpRequest();
-  
-  // Define the URL for the AJAX request
-  const url = './ajax.php';
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "./ajax.php?fname=" + fname + "&lname=" + lname, true);
 
-  // Define the request parameters and open the connection
-  xhr.open('GET', `${url}?fname=${fname}&lname=${lname}`, true);
-
-  // Set up a callback function to handle the response
-  xhr.onload = function () {
-      if (xhr.status === 200) {
-          const response = xhr.responseText;
-
-          // Check if the response is an error message
-          if (response.startsWith('#')) {
-              const errorCode = response.substring(1);
-              alert(`Error ${errorCode} Occurred`);
+  xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+              var response = xhr.responseText;
+              if (response.indexOf("Error") === 0) {
+                  // Handle the error case
+                  var errorNumber = response.match(/\d+/);
+                  alert("Error " + errorNumber + " Occurred");
+              } else {
+                  // Update the responseString paragraph with the response
+                  document.getElementById("responseString").textContent = response;
+              }
           } else {
-              // If the response is a string, change the text of the paragraph element
-              const responseStringElement = document.getElementById('responseString');
-              responseStringElement.textContent = response;
+              // Handle other HTTP status codes
+              alert("Error " + xhr.status + " Occurred");
           }
-      } else {
-          alert('Error occurred while making the AJAX request.');
       }
   };
 
-  // Send the AJAX request
   xhr.send();
 }
+
 
