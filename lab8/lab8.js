@@ -12,7 +12,7 @@ function getDataFromForm() {
 // Function to make an AJAX request
 function runAjax(fname, lname) {
   var xhr = new XMLHttpRequest();
-  xhr.open("GET", "./ajax.php?fname=" + fname + "&lname=" + lname, true);
+  xhr.open("GET", "ajax.php?fname=" + fname + "&lname=" + lname, true);
 
   xhr.onreadystatechange = function() {
       if (xhr.readyState === 4) {
