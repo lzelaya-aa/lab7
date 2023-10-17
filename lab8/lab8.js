@@ -1,9 +1,7 @@
 
-function getDataFromForm() {
-  alert("it worked!");
-}
 
 function getDataFromForm() {
+  alert("it worked!");
   // Obtain the first name and last name from the form elements
   const firstName = document.getElementById("fname").value;
   const lastName = document.getElementById("lname").value;
