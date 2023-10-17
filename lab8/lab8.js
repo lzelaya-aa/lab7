@@ -1,7 +1,6 @@
 
 
 function getDataFromForm() {
-  alert("it worked!");
   // Obtain the first name and last name from the form elements
     var firstName = document.querySelector('input[name="fname"]').value;
     var lastName = document.querySelector('input[name="lname"]').value;
