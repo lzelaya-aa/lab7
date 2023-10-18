@@ -1,31 +1,38 @@
+// Function to obtain the first name and last name from the form elements and make an AJAX call
 function getDataFromForm() {
-  // Obtain the first name and last name from the form elements
-  const fname = document.querySelector('input[name="fname"]').value;
-  const lname = document.querySelector('input[name="lname"]').value;
+  const firstName = document.querySelector('input[name="fname"]').value;
+  const lastName = document.querySelector('input[name="lname"]').value;
 
-  // Call runAjax and send the two strings as arguments
-  runAjax(fname, lname);
+  runAjax(firstName, lastName);
 }
 
+// Function to make an AJAX request
 function runAjax(fname, lname) {
-  // Create an XMLHttpRequest object
-  var xhr = new XMLHttpRequest();
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', './ajax.php?fname=' + fname + '&lname=' + lname, true);
 
-  // Define the AJAX request
-  xhr.open("GET", "test.php?fname=" + fname + "&lname=" + lname, true);
-
-  // Set up a callback function to handle the response
   xhr.onload = function () {
-    if (xhr.status === 200) {
-      // If the response is a string, change the text of the paragraph element
-      document.getElementById("responseString").textContent = xhr.responseText;
-    } else {
-      // If there is an error, alert the user
-      alert("Error " + xhr.status + " Occurred");
-    }
+      if (xhr.status >= 200 && xhr.status < 400) {
+          const response = xhr.responseText;
+
+          if (response.startsWith("Error")) {
+              // If the response starts with "Error," show an alert with the message.
+              alert(response);
+          } else {
+              // If it's a string response, update the paragraph element.
+              document.getElementById("responseString").textContent = response;
+          }
+      } else {
+          // Handle any AJAX errors here
+          alert("Error " + xhr.status + " occurred.");
+      }
   };
 
-  // Send the AJAX request
+  xhr.onerror = function () {
+      // Handle network errors
+      alert("Network error occurred.");
+  };
+
   xhr.send();
 }
 
