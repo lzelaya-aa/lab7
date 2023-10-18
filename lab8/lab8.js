@@ -12,7 +12,7 @@ function runAjax(fname, lname) {
   var xhr = new XMLHttpRequest();
 
   // Define the AJAX request
-  xhr.open("GET", "./ajax.php?fname=" + fname + "&lname=" + lname, true);
+  xhr.open("GET", "ajax.php?fname=" + fname + "&lname=" + lname, true);
 
   // Set up a callback function to handle the response
   xhr.onload = function () {
