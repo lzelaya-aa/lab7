@@ -1,43 +1,39 @@
-
-
 function getDataFromForm() {
   // Obtain the first name and last name from the form elements
-    var firstName = document.querySelector('input[name="fname"]').value;
-    var lastName = document.querySelector('input[name="lname"]').value;
-    console.log("First Name: " + firstName);
-    console.log("Last Name: " + lastName);
-    runAjax(firstName, lastName);
+  const fname = document.querySelector('input[name="fname"]').value;
+  const lname = document.querySelector('input[name="lname"]').value;
+
+  // Call runAjax and send the two strings as arguments
+  runAjax(fname, lname);
 }
 
-// Function to make an AJAX request
 function runAjax(fname, lname) {
-    var encodedFirstName = encodeURIComponent(fname);
-    var encodedLastName = encodeURIComponent(lname);
-    var url = "/lab8/ajax.php?fname=" + encodedFirstName + "&lname=" + encodedLastName;
+  // Create an XMLHttpRequest object
+  var xhr = new XMLHttpRequest();
 
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", url, true);
+  // Define the AJAX request
+  xhr.open("GET", "./ajax.php?fname=" + fname + "&lname=" + lname, true);
 
-  xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4) {
-          if (xhr.status === 200) {
-              var response = xhr.responseText;
-              if (response.indexOf("Error") === 0) {
-                  // Handle the error case
-                  var errorNumber = response.match(/\d+/);
-                  alert("Error " + errorNumber + " Occurred");
-              } else {
-                  // Update the responseString paragraph with the response
-                  document.getElementById("responseString").textContent = response;
-              }
-          } else {
-              // Handle other HTTP status codes
-              alert("Error " + xhr.status + " Occurred");
-          }
+  // Set up a callback function to handle the response
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      // Check if the response starts with "Hello" (as in your original PHP response)
+      if (xhr.responseText.startsWith("Hello")) {
+        // If it's a valid response, change the text of the paragraph element
+        document.getElementById("responseString").textContent = xhr.responseText;
+      } else {
+        // If there's an unexpected response, alert the user
+        alert("Unexpected response: " + xhr.responseText);
       }
+    } else {
+      // If there is an error, alert the user
+      alert("Error " + xhr.status + " Occurred");
+    }
   };
 
+  // Send the AJAX request
   xhr.send();
 }
+
 
 
