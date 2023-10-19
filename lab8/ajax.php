@@ -11,4 +11,9 @@ if (isset($_GET['fname']) && isset($_GET['lname'])) {
     // Handle the case where the parameters are missing
     echo "Error: Missing first name or last name.";
 }
+// echo "Hello ".$_GET[‘fname’]." ".$_GET[‘lname’]."!";
+// echo "Hello ".$_GET[fname]." ".$_GET[lname]."!";
 ?>
+
+
+
