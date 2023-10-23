@@ -7,7 +7,7 @@ error_reporting(E_ALL);
 $db_host="mysql-lab7-serverr.mysql.database.azure.com";        //Change this
 $db_user="aanngpcvoz";        //Change this
 $db_pass="Ricardo34$";        //Change this
-$db_name="mysql-lab7-serverr";     //Do not change
+$db_name="z_url_set_1";     //Do not change
 
 $db_conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 if (mysqli_connect_errno())
