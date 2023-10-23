@@ -1,4 +1,4 @@
-// Function to obtain the first name and last name from the form elements and make an AJAX call
+// obtain the first name and last name from the form elements and make an AJAX call
 function getDataFromForm() {
   const firstName = document.querySelector('input[name="fname"]').value;
   const lastName = document.querySelector('input[name="lname"]').value;
