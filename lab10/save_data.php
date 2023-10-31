@@ -4,7 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $last_name = $_POST['last_name'];
     
     // Define the path to the non-public folder
-    $folder_path = 'D:/home/site/lab10datafolder/';
+    $folder_path = '/home/site/lab10datafolder/';
     
     // Create a unique filename, for example, using the current timestamp
     $filename = $folder_path . 'data.txt';
