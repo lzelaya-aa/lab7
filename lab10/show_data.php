@@ -1,16 +1,16 @@
 <?php
-// Define the path to the non-public folder
+// Defines path to non-public folder
 $folder_path = '/home/site/lab10datafolder/';
 
-// Define the filename to read
+// Defines the filename to read
 $filename = $folder_path . 'data.txt';
 
 if (file_exists($filename)) {
-    // Read the contents of the file into an array
+    // Reads the contents of the file into an array
     $file_contents = file($filename, FILE_IGNORE_NEW_LINES);
     
     if ($file_contents) {
-        // Create an HTML table to display the data
+        // Creates an HTML table to display the data
         echo '<table>';
         foreach ($file_contents as $line) {
             list($first_name, $last_name) = explode(' ', $line);
