@@ -1,6 +1,6 @@
 <?php
 // Define the path to the non-public folder
-$folder_path = 'C:/lab10data/';
+$folder_path = 'D:/home/site/lab10datafolder/';
 
 // Define the filename to read
 $filename = $folder_path . 'data.txt';
