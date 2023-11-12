@@ -18,3 +18,4 @@ if (isset($_COOKIE[$cookieName])) {
     echo "Cookie '$cookieName' is now set with the value: $cookieValue";
 }
 ?>
+
