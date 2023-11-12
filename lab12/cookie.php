@@ -15,7 +15,7 @@ if (isset($_COOKIE[$cookieName])) {
     // Set the cookie
     setcookie($cookieName, $cookieValue, $expirationTime, '/');
 
-    echo "Cookie '$cookieName' is now set with the value: $cookieValue with expiration time of: $expirationTime";
+    echo "Cookie '$cookieName' is now set with the value: $cookieValue with the expiration time of: $expirationTime";
 }
 ?>
 
