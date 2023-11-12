@@ -10,7 +10,7 @@ if (isset($_COOKIE[$cookieName])) {
 } else {
     // Cookie is not set, so we'll set it
     $cookieValue = "WebTechCookie"; // Set your desired value here
-    $expirationTime = time() + -3600;  // Cookie will expire in 1 hour (adjust as needed)
+    $expirationTime = time() - 3600;  // Cookie will expire in 1 hour (adjust as needed)
 
     // Set the cookie
     setcookie($cookieName, $cookieValue, $expirationTime, '/');
