@@ -6,7 +6,7 @@ $cookieName = "cs4413";
 if (isset($_COOKIE[$cookieName])) {
     // Cookie is already set
     $cookieValue = $_COOKIE[$cookieName];
-    echo "Cookie '$cookieName' is already set with the value: $cookieValue";
+    echo "Cookie '$cookieName' is already set with the value: $cookieValue with the expiration time of: $expirationTime";
 } else {
     // Cookie is not set, so we'll set it
     $cookieValue = "YourCookieValue"; // Set your desired value here
